@@ -5,9 +5,8 @@ import java.util.List;
 public class EncryptDecrypt {
 
     public char[] encrypt(String gamma, String str){
-        char[] gammaCh = gamma.toCharArray();
         ArrayList<Character> gammaNew = new ArrayList<Character>();
-        for(char c : gammaCh){
+        for(char c : gamma.toCharArray()){
             gammaNew.add(c);
         }
         char[] strCh = str.toCharArray();
@@ -24,9 +23,8 @@ public class EncryptDecrypt {
     }
 
     public char[] dencrypt(String gamma, String str){
-        char[] gammaCh = gamma.toCharArray();
         ArrayList<Character> gammaNew = new ArrayList<Character>();
-        for(char c : gammaCh){
+        for(char c : gamma.toCharArray()){
             gammaNew.add(c);
         }
         char[] strCh = str.toCharArray();
