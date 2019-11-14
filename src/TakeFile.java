@@ -1,17 +1,18 @@
 import java.io.*;
 
 public class TakeFile {
-    public int takeFile() {
+    public void takeFile() {
         int data=0;
-        File file = new File("D://text.txt");
         try {
-            FileInputStream fileInputStream = new FileInputStream(file);
-            BufferedInputStream bufferedInputStream = new BufferedInputStream(fileInputStream);
-            data = bufferedInputStream.read();
-
+            FileInputStream fileInputStream = new FileInputStream(new File("D://text.txt"));
+           while((data = fileInputStream.read())!=-1){
+            data = fileInputStream.read();
+            System.out.print((char)data);
+           }
+           fileInputStream.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return data;
+        //System.out.println();
     }
 }

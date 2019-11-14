@@ -9,6 +9,6 @@ public class Main {
 //       System.out.println( message);
 //        message = String.valueOf(encDec.dencrypt());
 //        System.out.println(message);
-        System.out.print(new TakeFile().takeFile());
+        new TakeFile().takeFile();
     }
 }
