@@ -17,7 +17,7 @@ public class Gamma {
             gamma.add(c);
         }
         int i = 0;
-        while(gamma.size()<Main.message.length()) {
+        while(gamma.size()<Main.message.size()) {
             gamma.add(gamma.get(i));
             i++;
         }

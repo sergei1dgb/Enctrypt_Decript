@@ -1,14 +1,17 @@
+import java.util.ArrayList;
+
 public class Main {
 
     static String key = "1234ASD56789ASD";
-    static String message = "I love to exercise sport and make my body stronger";
+    static ArrayList<Character> message = null;
 
     public static void main(String[] args) {
-//       EncryptDecrypt encDec = new EncryptDecrypt();
-//       message = String.valueOf(encDec.encrypt());
-//       System.out.println( message);
-//        message = String.valueOf(encDec.dencrypt());
-//        System.out.println(message);
-        new TakeFile().takeFile();
+        EncryptDecrypt encryptDecrypt = new EncryptDecrypt();
+        TakeFile takeFile = new TakeFile();
+        PutFile putFile = new PutFile();
+        takeFile.takeFile();
+        putFile.putFile(encryptDecrypt.dencrypt());
+        //putFile.putFile(encryptDecrypt.encrypt());
+
     }
 }

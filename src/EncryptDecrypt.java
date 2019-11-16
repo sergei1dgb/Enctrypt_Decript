@@ -9,23 +9,21 @@ public class EncryptDecrypt {
         gammaObj = new Gamma();
     }
 
-    public char[] encrypt(){
-        if(gammaObj.getGammaNew().size()<Main.message.length())
+    public ArrayList<Character> encrypt(){
+        if(gammaObj.getGammaNew().size()<Main.message.size())
         gammaObj.createGamma();
-        char[] cryptCh = new char[Main.message.length()];
-        for(int j = 0; j<Main.message.length(); j++)
-            cryptCh[j] = (char)(Main.message.charAt(j)+gammaObj.getGammaNew().get(j));
-        System.out.println(gammaObj.getGammaNew());
+        ArrayList<Character> cryptCh = new ArrayList<Character>();
+        for(int j = 0; j<Main.message.size(); j++)
+            cryptCh.add((char)(Main.message.get(j)+gammaObj.getGammaNew().get(j)));
         return cryptCh;
     }
 
-    public char[] dencrypt(){
-        if(gammaObj.getGammaNew().size()<Main.message.length())
+    public ArrayList<Character> dencrypt(){
+        if(gammaObj.getGammaNew().size()<Main.message.size())
         gammaObj.createGamma();
-        char[] decryptCh = new char[Main.message.length()];
-        for(int j = 0; j<Main.message.length(); j++)
-            decryptCh[j] = (char)(Main.message.charAt(j)-gammaObj.getGammaNew().get(j));
-        System.out.println(gammaObj.getGammaNew());
+        ArrayList<Character> decryptCh = new ArrayList<Character>();
+        for(int j = 0; j<Main.message.size(); j++)
+            decryptCh.add((char)(Main.message.get(j)-gammaObj.getGammaNew().get(j)));
         return decryptCh;
     }
 

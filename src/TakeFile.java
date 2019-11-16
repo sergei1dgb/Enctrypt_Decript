@@ -2,23 +2,17 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class TakeFile {
-    private ArrayList<Integer> list=null;
-    public ArrayList<Integer> getList(){
-        return this.list;
-    }
+
     public void takeFile() {
         InputStreamReader fIS = null;
-        OutputStreamWriter fOS = null;
         int data=0;
-         list = new ArrayList<Integer>();
+         Main.message = new ArrayList<Character>();
         try {
-
-            fIS = new InputStreamReader(new FileInputStream("D://text.txt"), "UTF-8");
-            fOS = new OutputStreamWriter(new FileOutputStream("D://cript.sergo"));
+            fIS = new InputStreamReader(new FileInputStream("D://cript.txt"), "UTF-8");
 
            while((data = fIS.read())!=-1){
-               list.add(data);
-               System.out.print((char)data);
+               Main.message.add((char)data);
+               //System.out.print((char)data);
            }
         } catch (IOException e) {
             e.printStackTrace();
