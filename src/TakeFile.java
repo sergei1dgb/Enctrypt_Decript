@@ -16,7 +16,7 @@ public class TakeFile {
             File[] massFiles = file.listFiles(new FilenameFilter() {
                 @Override
                 public boolean accept(File file, String s) {
-                    return s.endsWith("rtf");
+                    return s.endsWith("txt");
                 }
             });
 

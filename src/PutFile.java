@@ -14,7 +14,7 @@ public class PutFile {
                 foS.write(arrayList.get(j));
 
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Файлы не найдены");
         } finally {
             try {
                 foS.flush();

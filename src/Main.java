@@ -6,6 +6,7 @@ public class Main {
     static ArrayList<Character> message = null;
 
     public static void main(String[] args) {
+        Forma forma = new Forma("Шифровальщик");
         TakeFile takeFile = new TakeFile();
         takeFile.takeFile();
 
