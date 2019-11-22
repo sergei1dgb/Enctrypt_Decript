@@ -5,9 +5,9 @@ import java.awt.event.ActionListener;
 
 public class Forma extends JFrame {
     TakeFile takeFile = new TakeFile();
-    EncryptDecrypt encryptDecrypt =  new EncryptDecrypt();
     JPanel jPanel = null;
     JTextField jTextField = null;
+    static String nameFile = null;
 
     public Forma(String name){
         super(name);
@@ -22,16 +22,19 @@ public class Forma extends JFrame {
 
     public void setButtons(){
         jPanel = new JPanel();
+        jPanel.setLayout(new FlowLayout());
         JButton crypting = new JButton("Зашифровать файлы");
         JButton decrypting = new JButton("Расшифровать файлы");
         JButton chooser = new JButton("Выбрать файл...");
-        jTextField = new JTextField("Введите ключ для зашифрования");
+        JButton enterKey = new JButton("ввести ключ");
+        jTextField = new JTextField("Введите ключ и нажмите Enter");
         jPanel.add(jTextField);
+        jPanel.add(enterKey);
         jPanel.add(crypting);
         jPanel.add(chooser);
         jPanel.add(decrypting);
 
-        jTextField.addActionListener(new ActionListener() {
+        enterKey.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 Main.key = jTextField.getText();
@@ -44,7 +47,7 @@ public class Forma extends JFrame {
                 if (Main.key == null) {
                     JOptionPane.showMessageDialog(null, "Для начала работы введите ключ");
                 } else {
-                    takeFile.takeFile(encryptDecrypt.encrypt());
+                    takeFile.takeFile("encrypt");
                 }
             }
         });
@@ -55,7 +58,7 @@ public class Forma extends JFrame {
                 if (Main.key == null) {
                     JOptionPane.showMessageDialog(null, "Для начала работы введите ключ");
                 } else {
-                takeFile.takeFile(encryptDecrypt.dencrypt());
+                takeFile.takeFile("dencrypt");
             }}
         });
     }

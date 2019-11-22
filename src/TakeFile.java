@@ -4,9 +4,11 @@ import java.util.ArrayList;
 
 public class TakeFile {
     PutFile putFile = null;
+    EncryptDecrypt encryptDecrypt = null;
 
-    public void takeFile(ArrayList<Character> cry_decry) {
+    public void takeFile(String operation) {
             putFile = new PutFile();
+            encryptDecrypt = new EncryptDecrypt();
             BufferedReader fIS = null;
             int data = 0;
             Main.message = new ArrayList<Character>();
@@ -25,7 +27,12 @@ public class TakeFile {
                     while ((data = fIS.read()) != -1)
                         Main.message.add((char) data);
 
-                    putFile.putFile(cry_decry, file1);
+                    if(operation.equals("encrypt")){
+                        putFile.putFile( encryptDecrypt.encrypt(), file1);
+                    }
+                    else if(operation.equals("dencrypt")){
+                        putFile.putFile( encryptDecrypt.dencrypt(), file1);
+                    }
                     Main.message.clear();
                     fIS.close();
                 }
