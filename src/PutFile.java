@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class PutFile {
 
-
+    // метод отправляет файлы обратно в папку с тем же именем
     public void putFile(ArrayList<Character> arrayList, File file) {
         BufferedWriter foS = null;
         try {
@@ -17,8 +17,8 @@ public class PutFile {
             System.out.println("Файлы не найдены");
         } finally {
             try {
-                foS.flush();
-                foS.close();
+                foS.flush();  // метод для гарантированной отправки всех байт в файл
+                foS.close();   // закрываем поток
             } catch (IOException e) {
                 e.printStackTrace();
             }
