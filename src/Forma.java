@@ -77,7 +77,7 @@ public class Forma extends JFrame {
                     if(chosenFile==null) JOptionPane.showMessageDialog(Forma.this, "Выберите файл!");
                     else {
                         takeFile.takeFile(chosenFile, "dencrypt"); // получаем файлы, расшифровываем и отправляем в то же место  с тем же названием
-                        JOptionPane.showMessageDialog(Forma.this, "Файл зашифрован");
+                        JOptionPane.showMessageDialog(Forma.this, "Файл расшифрован");
                     }
             }
             }
