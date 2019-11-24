@@ -26,8 +26,8 @@ public class Forma extends JFrame {
     public void setButtons(){
         jPanel = new JPanel();
         jPanel.setLayout(new BoxLayout(jPanel, BoxLayout.X_AXIS));
-        JButton crypting = new JButton("Зашифровать файлы");
-        JButton decrypting = new JButton("Расшифровать файлы");
+        JButton crypting = new JButton("Зашифровать файл");
+        JButton decrypting = new JButton("Расшифровать файл");
         JButton chooser = new JButton("Выбрать файл...");
         JButton enterKey = new JButton("ввести ключ");
         JLabel labelForEnterKey = new JLabel("Введите ключ");
@@ -49,7 +49,7 @@ public class Forma extends JFrame {
         chooser.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                chosenFile = takeFile.chooseFile();
+                chosenFile = takeFile.chooseFile(Forma.this);
         }
         });
 
@@ -59,8 +59,12 @@ public class Forma extends JFrame {
                 if (Main.key == null) {
                     JOptionPane.showMessageDialog(null, "Для начала работы введите ключ");
                 } else {
-                    takeFile.takeFile(chosenFile,"encrypt"); // получаем файлы, шифруем и отправляем в то же место
-                }                                           // с тем же названием
+                    if(chosenFile==null) JOptionPane.showMessageDialog(Forma.this, "Выберите файл!");
+                    else {
+                        takeFile.takeFile(chosenFile, "encrypt"); // получаем файлы, шифруем и отправляем в то же место  с тем же названием
+                        JOptionPane.showMessageDialog(Forma.this, "Файл зашифрован");
+                    }
+                }
             }
         });
 
@@ -70,8 +74,13 @@ public class Forma extends JFrame {
                 if (Main.key == null) {
                     JOptionPane.showMessageDialog(null, "Для начала работы введите ключ");
                 } else {
-                takeFile.takeFile(chosenFile, "dencrypt"); // получаем файлы, расшифровываем и отправляем в то же место
-            }}                                          // с тем же названием
+                    if(chosenFile==null) JOptionPane.showMessageDialog(Forma.this, "Выберите файл!");
+                    else {
+                        takeFile.takeFile(chosenFile, "dencrypt"); // получаем файлы, расшифровываем и отправляем в то же место  с тем же названием
+                        JOptionPane.showMessageDialog(Forma.this, "Файл зашифрован");
+                    }
+            }
+            }
         });
     }
 

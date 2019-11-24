@@ -18,10 +18,15 @@ public class TakeFile {
             return massFiles;
     }
 
-    public File chooseFile(){
+    // метод для выбора файла, с которым нужно произвести действия
+    public File chooseFile(JFrame frame){
         JFileChooser chooser = new JFileChooser();
-        int returnVal = chooser.showOpenDialog();
-        File chosenFile = chooser.getSelectedFile();
+        File chosenFile = null;
+        int returnVal = chooser.showOpenDialog(frame);
+        if(returnVal==JFileChooser.APPROVE_OPTION)
+        chosenFile = chooser.getSelectedFile();
+        else
+            JOptionPane.showMessageDialog(frame, "Файл не выбран");
         return chosenFile;
     }
 
@@ -34,12 +39,8 @@ public class TakeFile {
             int data = 0;
             Main.message = new ArrayList<Character>();
 
-            File file = new File("D:");
-
-            // получаем список файлов из указанной папки
+            // цикл считывает файл и работает с ними согласно алгоритму
             try {
-                // цикл считывает файлы по очереди из созданного списка и работает с ними согласно алгоритму
-
                     fIS = new BufferedReader(new FileReader(chosenFile));
 
                     while ((data = fIS.read()) != -1)
