@@ -20,6 +20,7 @@ public class Forma extends JFrame {
         add(jPanel);
         setVisible(true);
         pack(); // вызывается для установления оптимального размера окна и только после добавления компонентов
+        setResizable(false);
     }
 
     // метод создает и добавляет компоненты на панель
@@ -42,7 +43,8 @@ public class Forma extends JFrame {
         enterKey.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                Main.key = jTextField.getText();
+               Main.key = jTextField.getText();
+               jTextField.setText("******************");
             }
         });
 

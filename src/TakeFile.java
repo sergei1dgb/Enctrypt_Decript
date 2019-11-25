@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class TakeFile {
     PutFile putFile = null;
@@ -36,12 +37,14 @@ public class TakeFile {
             encryptDecrypt = new EncryptDecrypt();
             BufferedReader fIS = null;
 
+
             int data = 0;
             Main.message = new ArrayList<Character>();
 
             // цикл считывает файл и работает с ними согласно алгоритму
             try {
                     fIS = new BufferedReader(new FileReader(chosenFile));
+
 
                     while ((data = fIS.read()) != -1)
                         Main.message.add((char) data);
@@ -55,11 +58,13 @@ public class TakeFile {
                     Main.message.clear();     // очищаем сообщение после отправки, чтобы не было наслоения при большом количестве файлов
                     fIS.close();
 
+
             } catch (IOException e) {
                 e.printStackTrace();
             } finally {
                 try {
                     fIS.close();
+
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
