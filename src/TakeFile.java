@@ -35,7 +35,7 @@ public class TakeFile {
     public void takeFile(File chosenFile, String operation) {
             putFile = new PutFile();
             encryptDecrypt = new EncryptDecrypt();
-            BufferedReader fIS = null;
+            BufferedInputStream fIS = null;
 
 
             int data = 0;
@@ -43,7 +43,7 @@ public class TakeFile {
 
             // цикл считывает файл и работает с ними согласно алгоритму
             try {
-                    fIS = new BufferedReader(new FileReader(chosenFile));
+                    fIS = new BufferedInputStream(new DataInputStream(new FileInputStream(chosenFile)));
 
 
                     while ((data = fIS.read()) != -1)

@@ -6,9 +6,9 @@ public class PutFile {
 
     // метод отправляет файлы обратно в папку с тем же именем
     public void putFile(ArrayList<Character> arrayList, File file) {
-        BufferedWriter foS = null;
+        BufferedOutputStream foS = null;
         try {
-            foS = new BufferedWriter(new FileWriter( "D://" +  file.getName() ));
+            foS = new BufferedOutputStream(new DataOutputStream(new FileOutputStream( "D://" +  file.getName() )));
 
             for (int j = 0; j<arrayList.size(); j++)
                 foS.write(arrayList.get(j));
