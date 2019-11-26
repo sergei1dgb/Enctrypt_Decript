@@ -7,18 +7,6 @@ public class TakeFile {
     PutFile putFile = null;
     EncryptDecrypt encryptDecrypt = null;
 
-    public File[] findFileByEnd(){
-        File file = new File("D:");
-        // получаем список файлов из указанной папки
-            File[] massFiles = file.listFiles(new FilenameFilter() {
-                @Override
-                public boolean accept(File file, String s) {
-                    return s.endsWith("txt");
-                }
-            });
-            return massFiles;
-    }
-
     // метод для выбора файла, с которым нужно произвести действия
     public File chooseFile(JFrame frame){
         JFileChooser chooser = new JFileChooser();
